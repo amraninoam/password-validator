@@ -5,7 +5,7 @@
 function Check_numbers()
 {
     #This function checks if the password doesn't contain numbers
-    if [![$1 =~ [0-9] ]]
+    if [![$@ =~ [0-9] ]]
      then
         #invalid password
         return 1
@@ -38,7 +38,7 @@ function Check_lowercase()
     fi
 }
 
-len=$1
+len=$@
 password_length=${#len[@]}
 if [ $password_length -lt 10 ]
 then
