@@ -9,7 +9,7 @@ function Check_numbers()
     if ! [[ $@ =~ [0-9] ]]; then
         #invalid password
         echo -e " ${red} Password has only characters"
-        exit 1
+        return 1
     else
         return 0
     fi
@@ -23,7 +23,7 @@ function Check_lowers()
      then
         #invalid password
         echo -e " ${red} Password has no lower case letters"
-        exit 1
+        return 1
     else
         return 0
     fi
@@ -36,7 +36,7 @@ function Check_capitals()
      then
         #invalid password
         echo -e " ${red} Password has no both capital and small case letters"
-        exit 1
+        return 1
     else
         return 0
     fi
@@ -48,9 +48,9 @@ if [ $password_length -lt 10 ]
 then
     echo "Password length is under 10"
     exit 1
-elif [[ Check_numbers && Check_lowers && Check_capitals ]]; then
+elif ! [[ Check_numbers && Check_lowers && Check_capitals ]]; then
    echo -e "${green} Valid password"
 else
-    echo "No password was entered"
+    exit
     
 fi
