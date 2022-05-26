@@ -3,7 +3,7 @@
 function Check_numbers()
 {
     #This function checks if the password doesn't contain numbers
-    if [ [ $@ =~ [0-9] ] == 0];
+    if [ [[ $@ =~ [0-9] ] == 0]];
      then
         #invalid password
         echo "Password has only characters"
@@ -27,7 +27,7 @@ function Check_characters()
 function Check_specialChars()
 {
     #This function checks if the password contains special characters
-    if [ [ $@ =~ ^[[:alnum:]]+$ ] == 0];
+    if [ [[ $@ =~ ^[[:alnum:]]+$ ] == 0]];
      then
         #invalid password
         echo "Password contains special characters"
