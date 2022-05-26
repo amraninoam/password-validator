@@ -54,4 +54,3 @@ else
     echo "0"
     echo "valid password"
     exit
-fi
