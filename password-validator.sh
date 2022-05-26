@@ -37,21 +37,22 @@ function Check_lowercase()
         return 0
     fi
 }
+
 len=$1
 password_length=${#len[@]}
-if [$password_length -lt 10]
+if [ $password_length -lt 10 ]
 then
     echo "Password length is under 10"
     exit 1
-elif [Check_numbers]
+elif [ Check_numbers()]
 then
     echo "Password has no numbers"
     exit 1
-elif [Check_capitals]
+elif [ Check_capitals()]
 then 
     echo "Password has no capital case letters"
     exit 1
-elif [Check_lowercase]
+elif [ Check_lowercase()]
 then
     echo "Password has no lower case letters"
     exit 1
