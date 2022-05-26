@@ -1,7 +1,7 @@
 #! /usr/bin/bash
 read $@
-user_password =$@
-Check_password = 0 #valid password
+$user_password = $@ 
+$Check_password = 0 #valid password
 
 Check_numbers()
 {
@@ -10,7 +10,7 @@ Check_numbers()
         echo "Password has no numbers"
         #invalid password
         return 1
-}
+        }
 
 Check_capitals()
 {
