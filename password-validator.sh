@@ -27,7 +27,7 @@ function Check_characters()
 function Check_specialChars()
 {
     #This function checks if the password contains special characters
-    if [[ $@ =~ ^[[:alnum:]]+$ ] == 0];
+    if [ [ $@ =~ ^[[:alnum:]]+$ ] == 0];
      then
         #invalid password
         echo "Password contains special characters"
