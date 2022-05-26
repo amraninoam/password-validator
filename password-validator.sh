@@ -1,9 +1,9 @@
 #! /usr/bin/bash
 
 read -r -p "Enter a PW: " user_password
-$Check_password = 0 #valid password
+Check_password = 0 #valid password
 
-Check_numbers()
+function Check_numbers()
 {
     #This function checks if the password doesn't contain numbers
     if [![$user_password =~ [0-9] ]]; then
@@ -12,7 +12,7 @@ Check_numbers()
         return 1
         }
 
-Check_capitals()
+function Check_capitals()
 {
     #This function checks if the password doesn't contain capital case letters
     if [![^[A-Z]+$ ]]; then
@@ -22,7 +22,7 @@ Check_capitals()
 }
 
 
-Check_lowercase()
+function Check_lowercase()
 {
      #This function checks if the password doesn't contain lower case letters
     if [![^[a-z]+$ ]]; then
@@ -37,9 +37,9 @@ if [$password_length -lt 10]; then
     echo "Password length is under 10"
     return 1
 else
-    Check_numbers()
-    Check_capitals()
-    Check_lowercase()
+    Check_numbers
+    Check_capitals
+    Check_lowercase
 
 
 
