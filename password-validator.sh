@@ -48,9 +48,12 @@ if [ $password_length -lt 10 ]
 then
     echo "Password length is under 10"
     exit 1
-elif ! [[ Check_numbers() && Check_lowers() && Check_capitals() ]]; then
-   echo -e "${green} Valid password"
+#elif [[ Check_numbers && Check_lowers && Check_capitals ]]; then
+   #echo -e "${green} Valid password"
 else
-    exit
-    
+     Check_numbers
+     Check_lowers
+     Check_capitals
+     echo -e "${green} Valid password"
+
 fi
