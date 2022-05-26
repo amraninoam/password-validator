@@ -9,7 +9,8 @@ function Check_numbers()
      then
         #invalid password
         return 1
-    fi}
+    fi
+    }
 
 function Check_capitals()
 {
@@ -51,6 +52,5 @@ then
     echo "Password has no lower case letters"
     exit
 else
-    echo "0"
     echo "valid password"
-    exit
+fi
