@@ -1,7 +1,6 @@
 #! /usr/bin/bash
 
 read -r -p "Enter a PW: " user_password
-Check_password = 0 #valid password
 
 function Check_numbers()
 {
@@ -11,8 +10,7 @@ function Check_numbers()
         echo "Password has no numbers"
         #invalid password
         return 1
-    fi
-        }
+    fi}
 
 function Check_capitals()
 {
