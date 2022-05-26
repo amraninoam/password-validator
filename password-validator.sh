@@ -56,5 +56,6 @@ then
 else
    if [ Check_numbers -a Check_characters -a Check_specialChars - a Check_capitalsAndSmalls ]; then
    echo -e "${green} Valid password"
+   fi
     
 fi
