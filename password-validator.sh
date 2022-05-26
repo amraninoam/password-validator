@@ -19,7 +19,7 @@ function Check_characters()
     #This function checks if the password doesn't contain numbers
     if [[ $@ =~ ^[0-9]+$ ]]; then
         #invalid password
-        echo -e " ${red}Password has only numbers"
+        echo -e " ${red} Password has only numbers"
         exit 1
         
     fi
@@ -54,8 +54,8 @@ then
     echo "Password length is under 10"
     exit 1
 else
-   Check_numbers
    Check_characters
+   Check_numbers
    Check_specialChars 
    Check_capitalsAndSmalls
    echo -e "${green} Valid password"
