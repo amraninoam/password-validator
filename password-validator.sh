@@ -9,8 +9,10 @@ function Check_numbers()
      then
         #invalid password
         return 1
+    else 
+        return 0
     fi
-    }
+}
 
 function Check_capitals()
 {
@@ -19,9 +21,10 @@ function Check_capitals()
      then
         #invalid password
         return 1
+    else 
+        return 0
     fi
 }
-
 
 function Check_lowercase()
 {
@@ -30,24 +33,25 @@ function Check_lowercase()
      then
         #invalid password
         return 1
+    else 
+        return 0
     fi
 }
 
-password_length= ${#user_password[@]}
-
+password_length = ${#user_password[@]}
 if [$password_length -lt 10]
 then
     echo "Password length is under 10"
     exit 1
-elif [Check_numbers]
+elif [Check_numbers == 1]
 then
     echo "Password has no numbers"
     exit 1
-elif [Check_capitals]
+elif [Check_capitals == 1]
 then 
     echo "Password has no capital case letters"
     exit 1
-elif [Check_lowercase]
+elif [Check_lowercase == 1]
 then
     echo "Password has no lower case letters"
     exit 1
