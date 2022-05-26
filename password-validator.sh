@@ -54,7 +54,7 @@ else
      num1=Check_numbers
      num2=Check_lowers
      num3=Check_capitals
-     if [[ num1 && num2 && num3 ]]; then
+     if [[ num1 && num2 && num3 ] == 0]; then
         echo -e "${green} Valid password"
     fi
 
