@@ -1,6 +1,6 @@
 #! /usr/bin/bash
-read $@
-$user_password = $@ 
+
+read -r -p "Enter a PW: " user_password
 $Check_password = 0 #valid password
 
 Check_numbers()
