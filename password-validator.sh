@@ -48,6 +48,7 @@ if [ $password_length -lt 10 ]
 then
     echo "Password length is under 10"
     exit 1
+fi
 Check_numbers
 Check_lowercase
 Check_capitals
@@ -57,4 +58,3 @@ Check_capitals
 #else
 #    echo "valid password"
 #    exit 0
-fi
