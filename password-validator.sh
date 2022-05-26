@@ -3,7 +3,7 @@
 function Check_numbers()
 {
     #This function checks if the password doesn't contain numbers
-    if ! [[ $@ =~ [0-9] ]];
+    if ! [[ $1 =~ [0-9] ]];
      then
         #invalid password
         echo "Password has only characters"
@@ -49,8 +49,6 @@ function Check_capitalsAndSmalls()
 
 len=$@
 password_length=${#len}
-echo $len
-echo $1
 if [ $password_length -lt 10 ]
 then
     echo "Password length is under 10"
