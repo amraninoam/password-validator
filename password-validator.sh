@@ -44,18 +44,21 @@ function Check_capitals()
 
 len=$@
 password_length=${#len}
-if [ $password_length -lt 10 ]
+if [ $password_length -lt 10 ];
 then
     echo "Password length is under 10"
     exit 1
-#elif [[ Check_numbers && Check_lowers && Check_capitals ]]; then
-   #echo -e "${green} Valid password"
+
 else
-     num1=Check_numbers
-     num2=Check_lowers
-     num3=Check_capitals
-     if [[ [num1 && num2 && num3 ] == 0 ]]; then
+    Check_numbers
+    num1= $?
+    Check_lowers
+    num2= $?
+    Check_capitals
+    num3= $?
+    if ! [[ num1 && num2 && num3 ]]; then
         echo -e "${green} Valid password"
+        exit 0
     fi
 
 fi
