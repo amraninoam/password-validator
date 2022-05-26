@@ -8,6 +8,7 @@ function Check_numbers()
     if [![$@ =~ [^[:digit:]] ]]
      then
         #invalid password
+        echo "Password has only numbers"
         return 1
     else 
         return 0
@@ -20,6 +21,7 @@ function Check_capitals()
     if [![$@ =~ [^[A-Z]+$] ]]
      then
         #invalid password
+        echo "Password has no capital case letters"
         return 1
     else 
         return 0
@@ -32,6 +34,7 @@ function Check_lowercase()
     if [![$@ =~ [^[a-z]+$] ]]
      then
         #invalid password
+         echo "Password has no lower case letters"
         return 1
     else 
         return 0
@@ -45,18 +48,15 @@ if [ $password_length -lt 10 ]
 then
     echo "Password length is under 10"
     exit 1
-elif [ Check_numbers ]
+elif [ !Check_numbers ]
 then
-    echo "Password has only numbers"
-    exit 1
+
 elif [ Check_capitals ]
 then 
-    echo "Password has no capital case letters"
-    exit 1
+    
 elif [ Check_lowercase ]
 then
-    echo "Password has no lower case letters"
-    exit 1
+
 else
     echo "valid password"
     exit 0
