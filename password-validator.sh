@@ -6,8 +6,7 @@ green='\033[0;32m' # Green
 function Check_numbers()
 {
     #This function checks if the password doesn't contain numbers
-    if ! [[ $@ =~ [0-9] ]];
-     then
+    if ! [[ $@ =~ [0-9] ]]; then
         #invalid password
         echo -e " ${red} Password has only characters"
         exit 1
@@ -18,10 +17,9 @@ function Check_numbers()
 function Check_characters()
 {
     #This function checks if the password doesn't contain numbers
-    if [[ $@ =~ ^[0-9]+$ ]];
-     then
+    if [[ $@ =~ ^[0-9]+$ ]]; then
         #invalid password
-        echo "Password has only numbers"
+        echo -e " ${red}Password has only numbers"
         exit 1
         
     fi
@@ -30,10 +28,9 @@ function Check_characters()
 function Check_specialChars()
 {
     #This function checks if the password contains special characters
-    if ! [[ $@ =~ ^[[:alnum:]]+$ ]];
-     then
+    if ! [[ $@ =~ ^[[:alnum:]]+$ ]]; then
         #invalid password
-        echo "Password contains special characters"
+        echo -e " ${red} Password contains special characters"
         exit 1
 
     fi
@@ -45,7 +42,7 @@ function Check_capitalsAndSmalls()
     if [[ $@ =~ ^[aA] ]];
      then
         #invalid password
-        echo "Password has no both capital and small case letters"
+        echo -e " ${red} Password has no both capital and small case letters"
         exit 1
     fi
 }
@@ -57,9 +54,7 @@ then
     echo "Password length is under 10"
     exit 1
 else
-    Check_numbers
-    Check_characters
-    Check_specialChars
-    Check_capitalsAndSmalls
+   if [ Check_numbers -a Check_characters -a Check_specialChars - a Check_capitalsAndSmalls ]; then
+   echo -e "${green} Valid password"
     
 fi
