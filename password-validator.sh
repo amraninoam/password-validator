@@ -54,8 +54,10 @@ then
     echo "Password length is under 10"
     exit 1
 else
-   if [ Check_numbers -a Check_characters -a Check_specialChars - a Check_capitalsAndSmalls ]; then
+   Check_numbers
+   Check_characters
+   Check_specialChars 
+   Check_capitalsAndSmalls
    echo -e "${green} Valid password"
-   fi
     
 fi
