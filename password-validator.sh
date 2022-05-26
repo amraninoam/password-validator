@@ -10,40 +10,35 @@ function Check_numbers()
         #invalid password
         echo -e " ${red} Password has only characters"
         exit 1
+    else
+        return 0
     fi
 }
 
 
-function Check_characters()
+function Check_lowers()
 {
-    #This function checks if the password doesn't contain numbers
-    if [[ $@ =~ ^[0-9]+$ ]]; then
+    #This function checks if the password doesn't contain lower case letters
+    if ! [[ $@ =~ [a-z] ]];
+     then
         #invalid password
-        echo -e " ${red} Password has only numbers"
+        echo -e " ${red} Password has no lower case letters"
         exit 1
-        
+    else
+        return 0
     fi
 }
 
-function Check_specialChars()
-{
-    #This function checks if the password contains special characters
-    if ! [[ $@ =~ ^[[:alnum:]]+$ ]]; then
-        #invalid password
-        echo -e " ${red} Password contains special characters"
-        exit 1
-
-    fi
-}
-
-function Check_capitalsAndSmalls()
+function Check_capitals()
 {
     #This function checks if the password doesn't contain capital case letters
-    if [[ $@ =~ ^[aA] ]];
+    if ! [[ $@ =~ [A-Z] ]];
      then
         #invalid password
         echo -e " ${red} Password has no both capital and small case letters"
         exit 1
+    else
+        return 0
     fi
 }
 
@@ -53,11 +48,9 @@ if [ $password_length -lt 10 ]
 then
     echo "Password length is under 10"
     exit 1
-else
-   Check_characters
-   #Check_numbers
-   Check_specialChars 
-   Check_capitalsAndSmalls
+elif [ Check_numbers && Check_lowers && Check_capitals ]; then
    echo -e "${green} Valid password"
+else
+    echo "No password was entered"
     
 fi
