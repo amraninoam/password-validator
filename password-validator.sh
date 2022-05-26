@@ -11,7 +11,7 @@ function Check_numbers()
         echo -e " ${red} Password has only characters"
         return 1
     else
-        Check_lowers
+        return 0
     fi
 }
 
@@ -25,7 +25,7 @@ function Check_lowers()
         echo -e " ${red} Password has no lower case letters"
         return 1
     else
-        Check_capitals
+        return 0
     fi
 }
 
@@ -51,10 +51,10 @@ then
 #elif [[ Check_numbers && Check_lowers && Check_capitals ]]; then
    #echo -e "${green} Valid password"
 else
-     Check_numbers
-     #Check_lowers
-     #Check_capitals
-     if ! [[ Check_numbers ]]; then
+     num1=Check_numbers
+     num2=Check_lowers
+     num3=Check_capitals
+     if [[ num1 && num2 && num3 ]]; then
         echo -e "${green} Valid password"
     fi
 
