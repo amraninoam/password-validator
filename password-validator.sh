@@ -5,7 +5,7 @@
 function Check_numbers()
 {
     #This function checks if the password doesn't contain numbers
-    if [![$@ =~ [0-9]] ]
+    if [ ![$@ =~ [0-9]] ]
      then
         #invalid password
         echo "Password has only characters"
@@ -20,7 +20,7 @@ function Check_numbers()
 function Check_characters()
 {
     #This function checks if the password doesn't contain numbers
-    if [[$@ =~ ^[0-9]+$ ]]
+    if [ [$@ =~ ^[0-9]+$ ] ]
      then
         #invalid password
         echo "Password has only numbers"
@@ -34,7 +34,7 @@ function Check_characters()
 function Check_specialChars()
 {
     #This function checks if the password contains special characters
-    if [![$@ =~ ^[[:alnum:]]+$] ]
+    if [ ![$@ =~ ^[[:alnum:]]+$] ]
      then
         #invalid password
         echo "Password contains special characters"
@@ -48,7 +48,7 @@ function Check_specialChars()
 function Check_capitalsAndSmalls()
 {
     #This function checks if the password doesn't contain capital case letters
-    if [[$@ =~ ^[aA]] ]
+    if [ [$@ =~ ^[aA]] ]
      then
         #invalid password
         echo "Password has no both capital and small case letters"
