@@ -4,47 +4,74 @@
 
 function Check_numbers()
 {
-    #This function checks if the password doesn't contain characters
-    if [$@ =~ [^[:digit:]] ]
+    #This function checks if the password doesn't contain numbers
+    if [![$@ =~ [0-9] ]]
      then
         #invalid password
-        echo "Password has only numbers"
+        echo "Password has only characters"
         return 1
-    else 
-        echo "Password has not only numbers"
+    else
         return 0
         
     fi
 }
 
-function Check_capitals()
+
+function Check_characters()
 {
-    #This function checks if the password doesn't contain capital case letters
-    if [$@ =~ [^[A-Z]+$] ]
+    #This function checks if the password doesn't contain numbers
+    if [![$@ =~ ^[0-9]+$ ]]
      then
         #invalid password
-        echo "Password has no capital case letters"
-        return 1
-    else
-        echo "Password has capital case letters"
-        return 0
-
-    fi
-}
-
-function Check_lowercase()
-{
-     #This function checks if the password doesn't contain lower case letters
-    if [$@ =~ [^[a-z]+$] ]
-     then
-        #invalid password
-         echo "Password has no lower case letters"
+        echo "Password has only numbers"
         return 1
     else 
-        echo "Password has lower case letters"
         return 0
+        
     fi
 }
+
+function Check_specialChars()
+{
+    #This function checks if the password contains special characters
+    if [![$@ =~ ^[[:alnum:]]+$] ]
+     then
+        #invalid password
+        echo "Password contains special characters"
+        return 1
+    else
+        return 0
+
+    fi
+}
+
+function Check_capitalsAndSmalls()
+{
+    #This function checks if the password doesn't contain capital case letters
+    if [[$@ =~ ^[aA]] ]
+     then
+        #invalid password
+        echo "Password has no both capital and small case letters"
+        return 1
+    else
+        return 0
+
+    fi
+}
+
+#function Check_lowercase()
+
+ #    #This function checks if the password doesn't contain lower case letters
+ #   if [[$@ =~ ^[a-z]+$] ]
+ #    then
+        #invalid password
+ #        echo "Password has no lower case letters"
+  #      return 1
+  #  else 
+   #     echo "Password has lower case letters"
+   #     return 0
+   # fi
+
 
 len=$@
 password_length=${#len}
@@ -55,8 +82,9 @@ then
     exit 1
 else
     Check_numbers
-    Check_lowercase
-    Check_capitals
+    Check_characters
+    Check_capitalsAndSmalls
+    
 fi
 
 #elif [ Check_numbers -o Check_capitals -o Check_lowercase ]
