@@ -55,7 +55,7 @@ then
     exit 1
 else
    Check_characters
-   Check_numbers
+   #Check_numbers
    Check_specialChars 
    Check_capitalsAndSmalls
    echo -e "${green} Valid password"
