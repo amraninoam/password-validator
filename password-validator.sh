@@ -1,12 +1,15 @@
 #! /usr/bin/bash
+#colors
+red='\033[0;31m'   # Red
+green='\033[0;32m' # Green
 
 function Check_numbers()
 {
     #This function checks if the password doesn't contain numbers
-    if ! [[ $1 =~ [0-9] ]];
+    if ! [[ $@ =~ [0-9] ]];
      then
         #invalid password
-        echo "Password has only characters"
+        echo -e " ${red} Password has only characters"
         exit 1
     fi
 }
