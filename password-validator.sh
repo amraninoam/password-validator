@@ -39,7 +39,7 @@ function Check_lowercase()
 }
 
 len=$@
-password_length=${#len[@]}
+password_length=${#len}
 echo $len
 if [ $password_length -lt 10 ]
 then
