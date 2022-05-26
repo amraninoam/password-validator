@@ -5,7 +5,7 @@
 function Check_numbers()
 {
     #This function checks if the password doesn't contain characters
-    if [![$@ =~ [^[:digit:]] ]]
+    if [$@ =~ [^[:digit:]] ]
      then
         #invalid password
         echo "Password has only numbers"
@@ -20,7 +20,7 @@ function Check_numbers()
 function Check_capitals()
 {
     #This function checks if the password doesn't contain capital case letters
-    if [![$@ =~ [^[A-Z]+$] ]]
+    if [$@ =~ [^[A-Z]+$] ]
      then
         #invalid password
         echo "Password has no capital case letters"
@@ -35,7 +35,7 @@ function Check_capitals()
 function Check_lowercase()
 {
      #This function checks if the password doesn't contain lower case letters
-    if [![$@ =~ [^[a-z]+$] ]]
+    if [$@ =~ [^[a-z]+$] ]
      then
         #invalid password
          echo "Password has no lower case letters"
