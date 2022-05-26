@@ -37,8 +37,8 @@ function Check_lowercase()
         return 0
     fi
 }
-
-password_length=${#$1[@]}
+len=$1
+password_length=${#len[@]}
 if [$password_length -lt 10]
 then
     echo "Password length is under 10"
