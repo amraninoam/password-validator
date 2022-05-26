@@ -6,12 +6,12 @@ green='\033[0;32m' # Green
 function Check_numbers()
 {
     #This function checks if the password doesn't contain numbers
-    if [[ $@ =~ [0-9] ]]; then
+    if ! [[ $@ =~ [0-9] ]]; then
         #invalid password
         echo -e " ${red} Password has only characters"
         return 1
     else
-        return 0
+        Check_lowers
     fi
 }
 
@@ -19,20 +19,20 @@ function Check_numbers()
 function Check_lowers()
 {
     #This function checks if the password doesn't contain lower case letters
-    if [[ $@ =~ [a-z] ]];
+    if ! [[ $@ =~ [a-z] ]];
      then
         #invalid password
         echo -e " ${red} Password has no lower case letters"
         return 1
     else
-        return 0
+        Check_capitals
     fi
 }
 
 function Check_capitals()
 {
     #This function checks if the password doesn't contain capital case letters
-    if [[ $@ =~ [A-Z] ]];
+    if ! [[ $@ =~ [A-Z] ]];
      then
         #invalid password
         echo -e " ${red} Password has no capital letters"
@@ -52,8 +52,10 @@ then
    #echo -e "${green} Valid password"
 else
      Check_numbers
-     Check_lowers
-     Check_capitals
-     echo -e "${green} Valid password"
+     #Check_lowers
+     #Check_capitals
+     if ! [[ Check_numbers ]]; then
+        echo -e "${green} Valid password"
+    fi
 
 fi
