@@ -1,11 +1,11 @@
 #! /usr/bin/bash
 
-read -r -p "Enter a PW: " user_password
+#read -r -p "Enter a PW: " user_password
 
 function Check_numbers()
 {
     #This function checks if the password doesn't contain numbers
-    if [![$user_password =~ [0-9] ]]
+    if [![$1 =~ [0-9] ]]
      then
         #invalid password
         return 1
@@ -38,7 +38,7 @@ function Check_lowercase()
     fi
 }
 
-password_length=${#user_password[@]}
+password_length=${#$1[@]}
 if [$password_length -lt 10]
 then
     echo "Password length is under 10"
