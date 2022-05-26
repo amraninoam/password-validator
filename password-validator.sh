@@ -50,6 +50,7 @@ function Check_capitalsAndSmalls()
 len=$@
 password_length=${#len}
 echo $len
+echo $1
 if [ $password_length -lt 10 ]
 then
     echo "Password length is under 10"
