@@ -38,19 +38,20 @@ password_length= ${#user_password[@]}
 if [$password_length -lt 10]
 then
     echo "Password length is under 10"
-    exit
+    exit 1
 elif [Check_numbers]
 then
     echo "Password has no numbers"
-    exit
+    exit 1
 elif [Check_capitals]
 then 
     echo "Password has no capital case letters"
-    exit
+    exit 1
 elif [Check_lowercase]
 then
     echo "Password has no lower case letters"
-    exit
+    exit 1
 else
     echo "valid password"
+    exit 0
 fi
